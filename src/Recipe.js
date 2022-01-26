@@ -33,10 +33,10 @@ const updatequery=(e)=>{
   return <>
    
      <form onClick={updatequery} >
-     <div className="row mx-2"> 
-     <div className="col-md-7 my-4  text-align-center text-center">
+     <div className="row mx-4"> 
+     <div className="col-md-5 my-4  text-align-center text-center">
      <h1 className='text-primary'>Food Recipe </h1>
-      </div> <div className="container col-md-5 my-2">
+      </div> <div className="container col-md-7 my-2">
         <div className="input-group ">
          <div className="form-outline ">
     <input type="search" id="form1" className="form-control my-3 shadow p-3 mb-5 bg-white rounded" placeholder='Ingredients' value={search} onChange={updatesearch}/>
