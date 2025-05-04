@@ -6,7 +6,7 @@ const Recipedetails = ({ingredients}) => {
      return(
          <ul key={uuidv4()}>
              <li className='text-primary'>
-                 {ingredient.text}
+                 {ingredient.original}
              </li>
          </ul>
      ); 

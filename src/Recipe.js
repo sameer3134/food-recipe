@@ -13,14 +13,14 @@ const Recipe = () => {
     getrecipes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
  },[query]);  
-  var url = `https://api.edamam.com/search?q=${query}&app_id=7d69f87c&app_key=f7f450da0558dcc697efc4fdf251197e`
+  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${query}&apiKey=d1fbb5884f9c4068b8d52598fc46b8c1`
 
 const getrecipes =async()=>{
   var result =await Axios.get(url);
-  setrecipes(result.data.hits);
-  console.log(result.data.hits);
+  setrecipes(result.data);
+  console.log(result.data);
 }
-
+// console.log(recipes[0].image)
 const updatesearch=(e)=>{
   setSearch(e.target.value); 
 }
@@ -30,6 +30,7 @@ const updatequery=(e)=>{
   getrecipes()
 
 }
+
   return <>
    
      <form onClick={updatequery} >
@@ -50,9 +51,9 @@ const updatequery=(e)=>{
   
       <div className='container'>
       <div className="row mx-2">
-        {recipes.map(recipe =>{
-          return <div className="col-md-4 my-2" key={(recipe["recipe"]["url"])}> <Recipecard recipe={recipe}/></div>
-        })}
+        {recipes &&recipes?.map(recipe =>{
+          return <div className="col-md-4 my-2" key={(recipe.id)}> <Recipecard recipe={recipe}/></div>
+        })} 
       </div>
       </div>
     
